@@ -20,6 +20,10 @@ config/icon="res://textures/icon.svg"
 MessageBus="*uid://c3188oo1224t7"
 SceneAccess="*uid://dml6hkvfqxoqn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [file_customization]
 
 folder_colors={
