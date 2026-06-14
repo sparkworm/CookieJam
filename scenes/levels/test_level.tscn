@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfafu0m38vteu"]
 
-[ext_resource type="Texture2D" uid="uid://bvotaivtxlkhn" path="res://icon.svg" id="1_jbqir"]
+[ext_resource type="Texture2D" uid="uid://bvotaivtxlkhn" path="res://textures/icon.svg" id="1_jbqir"]
 
 [node name="TestLevel" type="Node2D" unique_id=273580719]
 
