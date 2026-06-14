@@ -7,7 +7,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yewv4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1046586076]
+collision_mask = 10
 motion_mode = 1
+platform_wall_layers = 10
 script = ExtResource("1_rp718")
 
 [node name="MoveCollision" type="CollisionShape2D" parent="." unique_id=713654831]

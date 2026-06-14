@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cdiklyggpc7tl"]
+
+[ext_resource type="Script" uid="uid://ba8psv84fy618" path="res://scenes/projectiles/bullet_trail.gd" id="1_3x75t"]
+
+[node name="BulletTrail" type="Line2D" unique_id=549536892]
+script = ExtResource("1_3x75t")
+max_points = 8
