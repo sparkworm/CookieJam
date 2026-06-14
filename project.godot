@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="CookieJam"
+run/main_scene="uid://bdvhf8ufexqua"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MessageBus="*uid://c3188oo1224t7"
+SceneAccess="*uid://dml6hkvfqxoqn"
 
 [physics]
 
