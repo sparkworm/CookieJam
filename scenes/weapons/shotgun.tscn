@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bbd4gf7bskb1e"]
+
+[ext_resource type="PackedScene" uid="uid://qfspm0e66qq4" path="res://scenes/weapons/weapon.tscn" id="1_lbead"]
+[ext_resource type="Script" uid="uid://dmb53y1bxgnx1" path="res://resources/bullet_data.gd" id="2_qn8fy"]
+[ext_resource type="Texture2D" uid="uid://bfmoaqfn08eb3" path="res://textures/weapon/rifle_body.png" id="2_uukpr"]
+[ext_resource type="Texture2D" uid="uid://bs513tqrtc76i" path="res://textures/weapon/barrel.png" id="3_qn8fy"]
+[ext_resource type="Texture2D" uid="uid://dsggg3dvjf6j5" path="res://textures/weapon/stock.png" id="4_xtykv"]
+
+[sub_resource type="Resource" id="Resource_xtykv"]
+script = ExtResource("2_qn8fy")
+speed = 1000.0
+lifetime = 0.5
+damage = 5
+metadata/_custom_type_script = "uid://dmb53y1bxgnx1"
+
+[node name="Shotgun" unique_id=1096367988 instance=ExtResource("1_lbead")]
+bullet_data = SubResource("Resource_xtykv")
+max_ammo = 8
+rounds_reload = true
+spread = 0.24609142453120045
+bullets_per_shot = 10
+
+[node name="Body" type="Sprite2D" parent="." index="0" unique_id=616687859]
+self_modulate = Color(0.47454292, 0.27299818, 0.08777126, 1)
+texture = ExtResource("2_uukpr")
+
+[node name="Barrel" type="Sprite2D" parent="." index="1" unique_id=1559347526]
+self_modulate = Color(0.32172796, 0.32172796, 0.32172796, 1)
+texture = ExtResource("3_qn8fy")
+
+[node name="Stock" type="Sprite2D" parent="." index="2" unique_id=592232757]
+self_modulate = Color(0.325259, 0.19749203, 0.057896905, 1)
+texture = ExtResource("4_xtykv")
+
+[node name="SpawnPoint" parent="." index="3" unique_id=1589868616]
+position = Vector2(-0.5, -18)

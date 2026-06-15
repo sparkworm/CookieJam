@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bshh8olfoq7nd" path="res://textures/character/player_mask.png" id="5_eojnx"]
 [ext_resource type="Texture2D" uid="uid://bwwyrg1w4tipt" path="res://textures/character/visor.png" id="6_qgnko"]
 [ext_resource type="PackedScene" uid="uid://b1nr6m4yn5dmy" path="res://scenes/weapons/rifle.tscn" id="7_6eyoc"]
+[ext_resource type="PackedScene" uid="uid://bbd4gf7bskb1e" path="res://scenes/weapons/shotgun.tscn" id="9_qgnko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yewv4"]
 radius = 14.142136
@@ -53,3 +54,7 @@ texture = ExtResource("5_eojnx")
 [node name="Visor" type="Sprite2D" parent="Body/Head" unique_id=396957019]
 self_modulate = Color(0.69803923, 0.13333334, 0, 1)
 texture = ExtResource("6_qgnko")
+
+[node name="Shotgun" parent="." unique_id=2130229884 instance=ExtResource("9_qgnko")]
+position = Vector2(-17, 0)
+rotation = -1.5586021

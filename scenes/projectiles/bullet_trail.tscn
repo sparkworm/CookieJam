@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ba8psv84fy618" path="res://scenes/projectiles/bullet_trail.gd" id="1_3x75t"]
 
+[sub_resource type="Curve" id="Curve_3x75t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.9, 0.9887641), -0.14498006, -0.14498006, 0, 0, Vector2(1, 0), -18.876425, 0.0, 0, 0]
+point_count = 3
+
 [node name="BulletTrail" type="Line2D" unique_id=549536892]
+width = 2.0
+width_curve = SubResource("Curve_3x75t")
+default_color = Color(1, 0.81960785, 0.14509805, 0.8117647)
 script = ExtResource("1_3x75t")
 max_points = 8

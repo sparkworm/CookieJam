@@ -15,6 +15,7 @@ enum FireStatus {
 @export var rounds_reload: bool
 ## Angle to either direction that a bullet may deviate
 @export_range(0, 90, 0.1, "radians_as_degrees") var spread: float = 0.04
+@export var bullets_per_shot: int = 1
 
 var ammo: int
 var trigger_pulled: bool = false
@@ -79,8 +80,11 @@ func get_fire_status() -> FireStatus:
 ## WILL fire the weapon, no checks.  Only call once it is known if the weapon
 ## can/should fire
 func fire() -> void:
-	var angle: float = global_rotation-PI/2 + randf_range(-spread, spread)
-	MessageBus.bullet_spawned.emit(spawn_point.global_position, 
-			Vector2.from_angle(angle), bullet_data)
+	var angle: float = global_rotation-PI/2
+	var counter: int = bullets_per_shot
+	while counter > 0:
+		MessageBus.bullet_spawned.emit(spawn_point.global_position, 
+				Vector2.from_angle(angle + randf_range(-spread, spread)), bullet_data)
+		counter -= 1
 	ammo -= 1
 	fire_cooldown.start()
