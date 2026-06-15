@@ -29,7 +29,13 @@ func _physics_process(delta: float) -> void:
 
 ## TODO: implement damaging
 func handle_collision() -> void:
-	bullet_collided.emit(get_collider())
+	# TODO: this doesn't seem to be working at stopping the bullets from visually penetrating, fix
+	position = get_collision_point()
+	print(position)
+	var collider: Object = get_collider()
+	if collider.has_method("take_hit"):
+		collider.take_hit(damage)
+	bullet_collided.emit(collider)
 	despawn()
 
 ## Potentially handle any odd behavior with despawning

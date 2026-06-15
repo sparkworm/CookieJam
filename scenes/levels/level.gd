@@ -18,4 +18,4 @@ func spawn_bullet(pos: Vector2, dir: Vector2, bullet_data: BulletData) -> void:
 	bullet.initialize(pos, dir, bullet_data)
 	var bullet_trail: BulletTrail = BULLET_TRAIL.instantiate()
 	projectiles.add_child(bullet_trail)
-	bullet_trail.bullet = bullet
+	bullet_trail.initialize(bullet)

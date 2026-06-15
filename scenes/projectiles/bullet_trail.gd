@@ -16,19 +16,19 @@ func initialize(target: Bullet) -> void:
 	bullet = target
 	bullet.bullet_collided.connect(handle_collision)
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not has_collided:
 		# if the bullet is null, that means it has been despawned (not collided)
 		# in this case we may as well despawn the trail instantly
 		if bullet != null:
 			follow_bullet()
 		else:
-			#push_warning("Warning in BulletTrail: bullet is null")
 			queue_free()
 	else:
 		# delete if we have no more points
 		if points.size() == 0:
 			queue_free()
+			return
 		# removed oldest point to create effect of tail shrinking
 		remove_point(0)
 
