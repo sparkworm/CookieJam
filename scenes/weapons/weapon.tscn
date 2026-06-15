@@ -11,3 +11,6 @@ max_ammo = 10
 [node name="FireCooldown" type="Timer" parent="." unique_id=334343279]
 wait_time = 0.1
 one_shot = true
+
+[node name="ReloadCooldown" type="Timer" parent="." unique_id=1607151104]
+one_shot = true

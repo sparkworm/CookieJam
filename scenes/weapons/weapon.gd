@@ -5,23 +5,27 @@ extends Node2D
 enum FireStatus {
 	CAN_FIRE,
 	STILL_FIRING,
+	RELOADING,
 	NO_AMMO,
 }
 
 @export var bullet_data: BulletData
 @export var max_ammo: int
 @export var full_auto: bool
+@export var rounds_reload: bool
 
 var ammo: int
 var trigger_pulled: bool = false
 
 @onready var fire_cooldown: Timer = $FireCooldown
+@onready var reload_cooldown: Timer = $ReloadCooldown
 @onready var spawn_point: Marker2D = $SpawnPoint
 
 func _ready() -> void:
 	ammo = max_ammo
+	reload_cooldown.timeout.connect(reload_finished)
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if full_auto and trigger_pulled:
 		fire_if_possible()
 	
@@ -29,6 +33,24 @@ func _process(_delta: float) -> void:
 		pull_trigger()
 	if Input.is_action_just_released("debug1"):
 		release_trigger()
+	if Input.is_action_just_pressed("debug2"):
+		reload()
+
+func reload() -> void:
+	# avoid reloading if we are full ammo on rounds reload
+	if rounds_reload and ammo == max_ammo:
+		return
+	# avoid restarting timer if a reload was already underway
+	if reload_cooldown.is_stopped():
+		reload_cooldown.start()
+
+func reload_finished() -> void:
+	# TODO: add rounds reload functionality
+	print("reload_finished")
+	if rounds_reload:
+		ammo += 1
+	else: 
+		ammo = max_ammo
 
 func pull_trigger() -> void:
 	trigger_pulled = true
@@ -45,6 +67,8 @@ func fire_if_possible() -> FireStatus:
 
 ## returns whether the gun can fire
 func get_fire_status() -> FireStatus:
+	if not reload_cooldown.is_stopped():
+		return FireStatus.RELOADING
 	if not fire_cooldown.is_stopped():
 		return FireStatus.STILL_FIRING
 	if ammo < 1: 
