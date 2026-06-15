@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bmx4qtte4b7p4"]
+[gd_scene format=3 uid="uid://bymieovtpagmk"]
 
-[ext_resource type="Script" uid="uid://d1lgpeydnscc0" path="res://scenes/characters/player.gd" id="1_rp718"]
-[ext_resource type="PackedScene" uid="uid://dqmunjlmebvy8" path="res://scenes/components/velocity_component.tscn" id="2_76oj4"]
+[ext_resource type="PackedScene" uid="uid://i1c5ireodgf2" path="res://scenes/characters/character.tscn" id="1_rp718"]
+[ext_resource type="Script" uid="uid://d1lgpeydnscc0" path="res://scenes/characters/player.gd" id="2_76oj4"]
 [ext_resource type="Texture2D" uid="uid://bbbta28cgcgqw" path="res://textures/character/body.png" id="3_kqtwu"]
 [ext_resource type="Texture2D" uid="uid://dbseooyx5kmiw" path="res://textures/generic_shapes/circle7.png" id="4_6eyoc"]
 [ext_resource type="Texture2D" uid="uid://04e5h5usm15y" path="res://textures/character/arms_bad.png" id="4_eojnx"]
@@ -10,53 +10,42 @@
 [ext_resource type="PackedScene" uid="uid://b1nr6m4yn5dmy" path="res://scenes/weapons/rifle.tscn" id="7_6eyoc"]
 [ext_resource type="PackedScene" uid="uid://bbd4gf7bskb1e" path="res://scenes/weapons/shotgun.tscn" id="9_qgnko"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yewv4"]
-radius = 14.142136
+[node name="Player" unique_id=1616588408 node_paths=PackedStringArray("available_weapons", "active_weapon") instance=ExtResource("1_rp718")]
+collision_layer = 1
+script = ExtResource("2_76oj4")
+available_weapons = [NodePath("Shotgun"), NodePath("Rifle")]
+active_weapon = NodePath("Shotgun")
 
-[node name="Player" type="CharacterBody2D" unique_id=1046586076]
-light_mask = 32
-visibility_layer = 32
-collision_mask = 10
-motion_mode = 1
-platform_wall_layers = 10
-script = ExtResource("1_rp718")
-
-[node name="MoveCollision" type="CollisionShape2D" parent="." unique_id=713654831]
-shape = SubResource("CircleShape2D_yewv4")
-
-[node name="VelocityComponent" parent="." unique_id=968672500 instance=ExtResource("2_76oj4")]
-max_speed = 150.0
-accel = 750.0
-decel = 400.0
-
-[node name="Rifle" parent="." unique_id=1096367988 instance=ExtResource("7_6eyoc")]
-position = Vector2(8, 3)
+[node name="Body" parent="." index="3" unique_id=1846759813]
+position = Vector2(-2, 0)
 rotation = 1.5707964
 
-[node name="Body" type="Node2D" parent="." unique_id=1423505968]
-position = Vector2(-3, 0)
-rotation = 1.5707964
-
-[node name="Arms" type="Sprite2D" parent="Body" unique_id=83329479]
+[node name="Arms" type="Sprite2D" parent="Body" index="0" unique_id=2068848447]
 self_modulate = Color(0.9529412, 0.78431374, 0.627451, 1)
 texture = ExtResource("4_eojnx")
 
-[node name="Body" type="Sprite2D" parent="Body" unique_id=627173134]
+[node name="Body" type="Sprite2D" parent="Body" index="1" unique_id=1935309394]
 self_modulate = Color(0.3254902, 0.20392157, 0.16078432, 1)
 texture = ExtResource("3_kqtwu")
 
-[node name="Head" type="Sprite2D" parent="Body" unique_id=242722414]
+[node name="Head" type="Sprite2D" parent="Body" index="2" unique_id=2047532142]
 self_modulate = Color(0, 0, 0, 1)
+z_index = 1
 texture = ExtResource("4_6eyoc")
 
-[node name="Mask" type="Sprite2D" parent="Body/Head" unique_id=1234765175]
+[node name="Mask" type="Sprite2D" parent="Body/Head" index="0" unique_id=290956045]
 self_modulate = Color(0.16862746, 0.19607843, 0.25882354, 1)
 texture = ExtResource("5_eojnx")
 
-[node name="Visor" type="Sprite2D" parent="Body/Head" unique_id=396957019]
+[node name="Visor" type="Sprite2D" parent="Body/Head" index="1" unique_id=1470254788]
 self_modulate = Color(0.69803923, 0.13333334, 0, 1)
 texture = ExtResource("6_qgnko")
 
-[node name="Shotgun" parent="." unique_id=2130229884 instance=ExtResource("9_qgnko")]
-position = Vector2(-17, 0)
-rotation = -1.5586021
+[node name="Shotgun" parent="." index="4" unique_id=1096367988 instance=ExtResource("9_qgnko")]
+position = Vector2(11, 3)
+rotation = 1.5707964
+
+[node name="Rifle" parent="." index="5" unique_id=2075456587 instance=ExtResource("7_6eyoc")]
+visible = false
+position = Vector2(11, 3)
+rotation = 1.5707964

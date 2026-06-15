@@ -31,13 +31,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if full_auto and trigger_pulled:
 		fire_if_possible()
-	
-	if Input.is_action_just_pressed("debug1"):
-		pull_trigger()
-	if Input.is_action_just_released("debug1"):
-		release_trigger()
-	if Input.is_action_just_pressed("debug2"):
-		reload()
 
 func reload() -> void:
 	# avoid reloading if we are full ammo on rounds reload

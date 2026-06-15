@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://i1c5ireodgf2"]
+
+[ext_resource type="Script" uid="uid://bwmg5pegpq5pa" path="res://scenes/characters/character.gd" id="1_x31xa"]
+[ext_resource type="Script" uid="uid://plrnmm30cui1" path="res://scenes/components/health_component.gd" id="2_1bdar"]
+[ext_resource type="Script" uid="uid://cic0as701hri4" path="res://scenes/components/velocity_component.gd" id="3_e22cc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e22cc"]
+radius = 14.0
+
+[node name="Character" type="CharacterBody2D" unique_id=1616588408 node_paths=PackedStringArray("health_component", "velocity_component")]
+z_index = 1
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_x31xa")
+health_component = NodePath("HealthComponent")
+velocity_component = NodePath("VelocityComponent")
+metadata/_custom_type_script = "uid://bwmg5pegpq5pa"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1617810015]
+script = ExtResource("2_1bdar")
+metadata/_custom_type_script = "uid://plrnmm30cui1"
+
+[node name="VelocityComponent" type="Node" parent="." unique_id=1120793794]
+script = ExtResource("3_e22cc")
+max_speed = 150.0
+accel = 750.0
+decel = 400.0
+metadata/_custom_type_script = "uid://cic0as701hri4"
+
+[node name="MoveCollision" type="CollisionShape2D" parent="." unique_id=1917224008]
+shape = SubResource("CircleShape2D_e22cc")
+
+[node name="Body" type="Node2D" parent="." unique_id=1846759813]
