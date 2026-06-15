@@ -3,17 +3,31 @@
 [ext_resource type="Script" uid="uid://dsjeo13f10e8y" path="res://scenes/levels/level.gd" id="1_377w7"]
 [ext_resource type="PackedScene" uid="uid://bmx4qtte4b7p4" path="res://scenes/characters/player.tscn" id="2_bovvr"]
 [ext_resource type="PackedScene" uid="uid://d4b3hd8twn6pi" path="res://scenes/camera_2d.tscn" id="3_b2cq8"]
+[ext_resource type="TileSet" uid="uid://dwuftjai75xqx" path="res://resources/tileset.tres" id="4_xb4v1"]
 
 [node name="Level" type="Node2D" unique_id=50319851]
 script = ExtResource("1_377w7")
 
 [node name="Characters" type="Node2D" parent="." unique_id=30931231]
+z_index = 1
 
 [node name="Player" parent="Characters" unique_id=1046586076 instance=ExtResource("2_bovvr")]
 
 [node name="Decals" type="Node2D" parent="." unique_id=1343355052]
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=76509530]
+z_index = 1
 
 [node name="Camera2D" parent="." unique_id=735421850 node_paths=PackedStringArray("subject") instance=ExtResource("3_b2cq8")]
 subject = NodePath("../Characters/Player")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=699539210]
+light_mask = 64
+visibility_layer = 64
+z_index = 2
+tile_set = ExtResource("4_xb4v1")
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=53680088]
+light_mask = 2
+visibility_layer = 2
+tile_set = ExtResource("4_xb4v1")
