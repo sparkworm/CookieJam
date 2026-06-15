@@ -31,3 +31,5 @@ metadata/_custom_type_script = "uid://cic0as701hri4"
 shape = SubResource("CircleShape2D_e22cc")
 
 [node name="Body" type="Node2D" parent="." unique_id=1846759813]
+position = Vector2(-2, 0)
+rotation = 1.5707964

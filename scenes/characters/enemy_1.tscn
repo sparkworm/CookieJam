@@ -1,5 +1,21 @@
 [gd_scene format=3 uid="uid://dpausbnfif1bh"]
 
 [ext_resource type="PackedScene" uid="uid://do1qwl2yj2hih" path="res://scenes/characters/enemy.tscn" id="1_ln8tg"]
+[ext_resource type="Texture2D" uid="uid://04e5h5usm15y" path="res://textures/character/arms_bad.png" id="2_4y65w"]
+[ext_resource type="Texture2D" uid="uid://bbbta28cgcgqw" path="res://textures/character/body.png" id="3_0o106"]
+[ext_resource type="Texture2D" uid="uid://dbseooyx5kmiw" path="res://textures/generic_shapes/circle7.png" id="4_e4wcf"]
 
 [node name="Enemy1" unique_id=1616588408 instance=ExtResource("1_ln8tg")]
+
+[node name="Arms" type="Sprite2D" parent="Body" parent_id_path=PackedInt32Array(1846759813) index="0" unique_id=553594702]
+self_modulate = Color(0.9529412, 0.78431374, 0.627451, 1)
+texture = ExtResource("2_4y65w")
+
+[node name="Body" type="Sprite2D" parent="Body" parent_id_path=PackedInt32Array(1846759813) index="1" unique_id=672961382]
+self_modulate = Color(0.3254902, 0.20392157, 0.16078432, 1)
+texture = ExtResource("3_0o106")
+
+[node name="Head" type="Sprite2D" parent="Body" parent_id_path=PackedInt32Array(1846759813) index="2" unique_id=319315147]
+self_modulate = Color(0.9529412, 0.78431374, 0.627451, 1)
+z_index = 1
+texture = ExtResource("4_e4wcf")
