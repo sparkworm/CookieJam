@@ -1,5 +1,5 @@
 class_name Bullet
-extends RayCast2D
+extends Node2D
 
 signal bullet_collided(collider: Object)
 
@@ -9,6 +9,7 @@ var velocity: Vector2
 var last_pos: Vector2
 
 @onready var despawn_timer: Timer = $DespawnTimer
+@onready var ray: RayCast2D = $Ray
 
 ## Initialize the bullet with the provided GLOBAL position and direction
 func initialize(pos: Vector2, dir: Vector2, data: BulletData) -> void:
@@ -23,16 +24,16 @@ func initialize(pos: Vector2, dir: Vector2, data: BulletData) -> void:
 func _physics_process(delta: float) -> void:
 	var displacement: Vector2 = velocity * delta
 	position += displacement
-	target_position = -displacement
-	if is_colliding():
+	ray.position = -displacement
+	ray.target_position = displacement
+	# probably not very performant, but fixes the issue with bullets going too far
+	ray.force_raycast_update()
+	if ray.is_colliding():
 		handle_collision()
 
-## TODO: implement damaging
 func handle_collision() -> void:
-	# TODO: this doesn't seem to be working at stopping the bullets from visually penetrating, fix
-	position = get_collision_point()
-	print(position)
-	var collider: Object = get_collider()
+	global_position = ray.get_collision_point()
+	var collider: Object = ray.get_collider()
 	if collider.has_method("take_hit"):
 		collider.take_hit(damage)
 	bullet_collided.emit(collider)

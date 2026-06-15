@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bybr75hvvlkxu" path="res://scenes/projectiles/bullet.gd" id="1_yvfy2"]
 
-[node name="Bullet" type="RayCast2D" unique_id=748921772]
-target_position = Vector2(0, 0)
-collision_mask = 11
-hit_from_inside = true
+[node name="Bullet" type="Node2D" unique_id=1899324384]
 script = ExtResource("1_yvfy2")
 
 [node name="DespawnTimer" type="Timer" parent="." unique_id=999365282]
 wait_time = 3.0
+
+[node name="Ray" type="RayCast2D" parent="." unique_id=539253875]
+target_position = Vector2(0, 0)
+collision_mask = 11

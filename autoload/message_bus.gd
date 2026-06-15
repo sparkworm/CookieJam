@@ -10,3 +10,5 @@ signal level_changed(new_level: SceneAccess.Levels)
 ## Recieved by: Level
 ## Triggers a bullet to spawn
 signal bullet_spawned(pos: Vector2, dir: Vector2, data: BulletData)
+## Spawns a small icon to help with debugging
+signal debug_marker_spawned(pos: Vector2)
