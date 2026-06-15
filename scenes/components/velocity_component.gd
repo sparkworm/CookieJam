@@ -12,13 +12,13 @@ extends Node
 
 var velocity: Vector2
 
-## reduces the magnitude of the velocity linearly by decel
+## Reduces the magnitude of the velocity linearly by decel
 func resolve_decel(delta: float) -> void:
 	var new_mag: float = max(0,velocity.length() - decel * delta)
 	velocity = velocity.normalized() * new_mag
 
-## adds direction * magnitude to the velocity.  If the magnitude of the new velocity exceeds
-## max_speed, the magnitude is set to max_speed.  magnitude will default to accel, as that is the 
+## Adds direction * magnitude to the velocity.  If the magnitude of the new velocity exceeds
+## max_speed, the magnitude is set to max_speed.  Magnitude will default to accel, as that is the 
 ## intended behavior, but a custom magnitude can technically be specified
 func accelerate(delta: float, direction: Vector2, magnitude: float = accel) -> void:
 	velocity += direction * magnitude * delta

@@ -46,7 +46,6 @@ func reload() -> void:
 
 func reload_finished() -> void:
 	# TODO: add rounds reload functionality
-	print("reload_finished")
 	if rounds_reload:
 		ammo += 1
 	else: 
@@ -65,7 +64,7 @@ func fire_if_possible() -> FireStatus:
 		fire()
 	return status
 
-## returns whether the gun can fire
+## Returns whether the gun can fire
 func get_fire_status() -> FireStatus:
 	if not reload_cooldown.is_stopped():
 		return FireStatus.RELOADING

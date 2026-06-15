@@ -12,8 +12,7 @@ const BULLET: PackedScene = preload("uid://troo27efojv8")
 func _ready() -> void:
 	MessageBus.bullet_spawned.connect(spawn_bullet)
 
-func spawn_bullet(pos: Vector2, dir: Vector2, 
-		bullet_data: BulletData) -> void:
+func spawn_bullet(pos: Vector2, dir: Vector2, bullet_data: BulletData) -> void:
 	var bullet: Bullet = BULLET.instantiate()
 	projectiles.add_child(bullet)
 	bullet.initialize(pos, dir, bullet_data)

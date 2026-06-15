@@ -32,6 +32,6 @@ func handle_collision() -> void:
 	bullet_collided.emit(get_collider())
 	despawn()
 
-## potentially handle any odd behavior with despawning
+## Potentially handle any odd behavior with despawning
 func despawn() -> void:
 	queue_free()

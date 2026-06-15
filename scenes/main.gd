@@ -8,7 +8,7 @@ extends Node
 func _ready() -> void:
 	MessageBus.level_changed.connect(change_level)
 
-## Get rid of old level scene and add new one
+## Remove of old level scene and add new one
 func change_level(lvl_id: SceneAccess.Levels) -> void:
 	# ASSUME: there will only be one child
 	var to_remove: Node = active_level.get_child(0)
