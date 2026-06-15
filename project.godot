@@ -24,10 +24,17 @@ SceneAccess="*uid://dml6hkvfqxoqn"
 
 gdscript/warnings/untyped_declaration=1
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="viewport"
+
 [file_customization]
 
 folder_colors={
 "res://autoload/": "yellow",
+"res://resources/": "green",
 "res://scenes/": "gray",
 "res://textures/": "pink"
 }

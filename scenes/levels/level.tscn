@@ -16,5 +16,4 @@ script = ExtResource("1_377w7")
 [node name="Projectiles" type="Node2D" parent="." unique_id=76509530]
 
 [node name="Camera2D" parent="." unique_id=735421850 node_paths=PackedStringArray("subject") instance=ExtResource("3_b2cq8")]
-zoom = Vector2(2, 2)
 subject = NodePath("../Characters/Player")

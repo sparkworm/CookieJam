@@ -3,10 +3,7 @@ extends RayCast2D
 
 signal bullet_collided(collider: Object)
 
-@export var damage: int
-@export var speed: float
-## Time until this bullet despawns
-@export var lifetime: float = 3.0
+var damage: int
 
 var velocity: Vector2
 var last_pos: Vector2
@@ -14,10 +11,12 @@ var last_pos: Vector2
 @onready var despawn_timer: Timer = $DespawnTimer
 
 ## Initialize the bullet with the provided GLOBAL position and direction
-func initialize(pos: Vector2, dir: Vector2) -> void:
-	velocity = dir * speed
+func initialize(pos: Vector2, dir: Vector2, data: BulletData) -> void:
+	damage = data.damage
+	velocity = dir * data.speed
 	global_position = pos
-	despawn_timer.wait_time = lifetime
+	# set time until the bullet despawns
+	despawn_timer.wait_time = data.lifetime
 	despawn_timer.timeout.connect(despawn)
 	despawn_timer.start()
 
