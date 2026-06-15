@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b1nr6m4yn5dmy"]
+
+[ext_resource type="PackedScene" uid="uid://qfspm0e66qq4" path="res://scenes/weapons/weapon.tscn" id="1_6kub0"]
+[ext_resource type="Texture2D" uid="uid://dsggg3dvjf6j5" path="res://textures/weapon/stock.png" id="2_s04ql"]
+[ext_resource type="Texture2D" uid="uid://bs513tqrtc76i" path="res://textures/weapon/barrel.png" id="3_yjk07"]
+[ext_resource type="Texture2D" uid="uid://bfmoaqfn08eb3" path="res://textures/weapon/rifle_body.png" id="4_k631g"]
+[ext_resource type="Texture2D" uid="uid://cgt2xl4w3kghr" path="res://textures/weapon/rifle_grid.png" id="5_qn60d"]
+[ext_resource type="Texture2D" uid="uid://4xjjg1cw0ppe" path="res://textures/weapon/rifle_sights.png" id="6_byoic"]
+
+[node name="Rifle" unique_id=1096367988 instance=ExtResource("1_6kub0")]
+
+[node name="Stock" type="Sprite2D" parent="." index="0" unique_id=2056013150]
+self_modulate = Color(0.15127608, 0.15127608, 0.15127608, 1)
+texture = ExtResource("2_s04ql")
+
+[node name="Barrel" type="Sprite2D" parent="." index="1" unique_id=45906197]
+self_modulate = Color(0.15487596, 0.154876, 0.15487596, 1)
+texture = ExtResource("3_yjk07")
+
+[node name="Body" type="Sprite2D" parent="." index="2" unique_id=366546264]
+self_modulate = Color(0.20511743, 0.20511743, 0.20511743, 1)
+texture = ExtResource("4_k631g")
+
+[node name="Grid" type="Sprite2D" parent="." index="3" unique_id=1322553824]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("5_qn60d")
+
+[node name="Sights" type="Sprite2D" parent="." index="4" unique_id=1836898827]
+self_modulate = Color(0.88668406, 1, 0.8033046, 1)
+texture = ExtResource("6_byoic")
