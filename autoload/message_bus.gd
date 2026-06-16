@@ -10,5 +10,9 @@ signal level_changed(new_level: SceneAccess.Levels)
 ## Recieved by: Level
 ## Triggers a bullet to spawn
 signal bullet_spawned(pos: Vector2, dir: Vector2, data: BulletData)
+## Sent by: Weapon
+## Recieved by: Level
+## Triggers a decal transport to spawn
+signal decal_transport_spawned(pos: Vector2, rot: float, transport: DecalTransport)
 ## Spawns a small icon to help with debugging
 signal debug_marker_spawned(pos: Vector2)

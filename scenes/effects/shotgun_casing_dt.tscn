@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bugiysf15y34x"]
+
+[ext_resource type="PackedScene" uid="uid://ce0rwt88cs64q" path="res://scenes/effects/decal_transport.tscn" id="1_86s6e"]
+[ext_resource type="Texture2D" uid="uid://d1mf6jimv5d6r" path="res://textures/generic_shapes/white_pixel.png" id="2_b845l"]
+
+[node name="DecalTransport" unique_id=1677618239 node_paths=PackedStringArray("decal") instance=ExtResource("1_86s6e")]
+decal = NodePath("ShotgunCasing")
+launch_speed = 100.0
+
+[node name="ShotgunCasing" type="Sprite2D" parent="." index="1" unique_id=945573409]
+self_modulate = Color(0.7411765, 0, 0, 1)
+position = Vector2(0, -0.405)
+scale = Vector2(1, 2.555)
+texture = ExtResource("2_b845l")
+
+[node name="ShotgunCasingRim" type="Sprite2D" parent="ShotgunCasing" index="0" unique_id=3397474]
+self_modulate = Color(1, 0.83137256, 0.28235295, 1)
+position = Vector2(0, 0.409)
+scale = Vector2(1, 0.205)
+texture = ExtResource("2_b845l")

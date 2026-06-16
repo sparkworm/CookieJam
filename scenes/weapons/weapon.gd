@@ -16,13 +16,15 @@ enum FireStatus {
 ## Angle to either direction that a bullet may deviate
 @export_range(0, 90, 0.1, "radians_as_degrees") var spread: float = 0.04
 @export var bullets_per_shot: int = 1
+@export var casing_decal_transport: PackedScene
 
 var ammo: int
 var trigger_pulled: bool = false
 
 @onready var fire_cooldown: Timer = $FireCooldown
 @onready var reload_cooldown: Timer = $ReloadCooldown
-@onready var spawn_point: Marker2D = $SpawnPoint
+@onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
+@onready var decal_spawn_point: Marker2D = $DecalSpawnPoint
 
 func _ready() -> void:
 	ammo = max_ammo
@@ -75,8 +77,11 @@ func get_fire_status() -> FireStatus:
 func fire() -> void:
 	var angle: float = global_rotation-PI/2
 	var counter: int = bullets_per_shot
+	MessageBus.decal_transport_spawned.emit(decal_spawn_point.global_position, 
+				decal_spawn_point.global_rotation, 
+				casing_decal_transport.instantiate())
 	while counter > 0:
-		MessageBus.bullet_spawned.emit(spawn_point.global_position, 
+		MessageBus.bullet_spawned.emit(bullet_spawn_point.global_position, 
 				Vector2.from_angle(angle + randf_range(-spread, spread)), bullet_data)
 		counter -= 1
 	ammo -= 1

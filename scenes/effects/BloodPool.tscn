@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cxof7rv6muoir"]
+
+[ext_resource type="Script" uid="uid://cw23ypd05ie7k" path="res://scenes/effects/blood_pool.gd" id="1_1t74s"]
+[ext_resource type="Texture2D" uid="uid://dbseooyx5kmiw" path="res://textures/generic_shapes/circle7.png" id="1_kcev1"]
+
+[node name="BloodPool" type="Sprite2D" unique_id=923940925]
+modulate = Color(1, 0.003921569, 0.16862746, 1)
+texture = ExtResource("1_kcev1")
+offset = Vector2(0, -1)
+script = ExtResource("1_1t74s")
+
+[node name="Circle7" type="Sprite2D" parent="." unique_id=1696841290]
+modulate = Color(0.61339027, 0.61339027, 0.61339027, 1)
+z_index = -1
+scale = Vector2(1.164, 1.164)
+texture = ExtResource("1_kcev1")
+offset = Vector2(0, -1)

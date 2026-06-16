@@ -12,6 +12,7 @@ const DEBUG_MARKER = preload("uid://ckxebogbgamgm")
 
 func _ready() -> void:
 	MessageBus.bullet_spawned.connect(spawn_bullet)
+	MessageBus.decal_transport_spawned.connect(spawn_decal_transport)
 	MessageBus.debug_marker_spawned.connect(spawn_debug_marker)
 
 func spawn_bullet(pos: Vector2, dir: Vector2, bullet_data: BulletData) -> void:
@@ -26,3 +27,9 @@ func spawn_debug_marker(pos: Vector2) -> void:
 	var marker: Sprite2D = DEBUG_MARKER.instantiate()
 	marker.position = pos
 	add_child(marker)
+
+func spawn_decal_transport(pos: Vector2, rot: float, transport: DecalTransport) -> void:
+	print("spawning decal")
+	transport.initialize(pos, rot)
+	decals.add_child(transport)
+	print(decals.get_children())

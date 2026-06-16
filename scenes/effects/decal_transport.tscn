@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ce0rwt88cs64q"]
+
+[ext_resource type="Script" uid="uid://c443ro8dla6tj" path="res://scenes/effects/decal_transport.gd" id="1_dc2yg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hdrt"]
+radius = 2.0
+
+[node name="DecalTransport" type="CharacterBody2D" unique_id=1677618239]
+collision_layer = 0
+collision_mask = 8
+motion_mode = 1
+script = ExtResource("1_dc2yg")
+spin_speed = 3.142
+spin_speed_variation = 0.785
+spin_decel = 1.571
+launch_speed = 200.0
+launch_speed_variation = 50.0
+launch_angle_variation = 0.196
+linear_decel = 300.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651114866]
+shape = SubResource("CircleShape2D_0hdrt")

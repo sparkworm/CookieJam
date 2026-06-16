@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://qfspm0e66qq4"]
 
 [ext_resource type="Script" uid="uid://oivr6eqamodk" path="res://scenes/weapons/weapon.gd" id="1_nqevj"]
+[ext_resource type="PackedScene" uid="uid://bniuhd0311u6f" path="res://scenes/effects/rifle_casing_dt.tscn" id="2_eo7p8"]
 
 [node name="Weapon" type="Node2D" unique_id=1096367988]
 script = ExtResource("1_nqevj")
 max_ammo = 10
+casing_decal_transport = ExtResource("2_eo7p8")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1589868616]
+[node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=1589868616]
+
+[node name="DecalSpawnPoint" type="Marker2D" parent="." unique_id=1230873651]
 
 [node name="FireCooldown" type="Timer" parent="." unique_id=334343279]
 wait_time = 0.1

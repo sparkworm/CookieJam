@@ -39,8 +39,11 @@ texture = ExtResource("5_qn60d")
 self_modulate = Color(0.88668406, 1, 0.8033046, 1)
 texture = ExtResource("6_byoic")
 
-[node name="SpawnPoint" parent="." index="5" unique_id=1589868616]
+[node name="BulletSpawnPoint" parent="." index="5" unique_id=1589868616]
 position = Vector2(-0.5, -18)
 
-[node name="FireCooldown" parent="." index="6" unique_id=334343279]
+[node name="DecalSpawnPoint" parent="." index="6" unique_id=1230873651]
+position = Vector2(0, -2)
+
+[node name="FireCooldown" parent="." index="7" unique_id=334343279]
 wait_time = 0.05
