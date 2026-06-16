@@ -29,7 +29,5 @@ func spawn_debug_marker(pos: Vector2) -> void:
 	add_child(marker)
 
 func spawn_decal_transport(pos: Vector2, rot: float, transport: DecalTransport) -> void:
-	print("spawning decal")
 	transport.initialize(pos, rot)
 	decals.add_child(transport)
-	print(decals.get_children())

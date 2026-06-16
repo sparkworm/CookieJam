@@ -9,7 +9,7 @@
 script = ExtResource("1_377w7")
 
 [node name="Characters" type="Node2D" parent="." unique_id=30931231]
-z_index = 1
+z_index = 2
 
 [node name="Player" parent="Characters" unique_id=1616588408 instance=ExtResource("2_bovvr")]
 z_index = 0

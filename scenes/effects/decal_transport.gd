@@ -22,7 +22,6 @@ var rotational_velocity: float
 var transport_active: bool
 
 func initialize(pos: Vector2, rot: float) -> void:
-	print("initialzing")
 	transport_active = true
 	global_position = pos
 	if decal == null:
@@ -53,5 +52,4 @@ func _physics_process(delta: float) -> void:
 func end_transport() -> void:
 	transport_active = false
 	decal.reparent(get_parent(), true)
-	print("freeing decal")
 	queue_free()
