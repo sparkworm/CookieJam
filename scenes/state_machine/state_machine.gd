@@ -7,6 +7,9 @@ extends Node
 func _ready() -> void:
 	# starting state should be able to be entered with no arguments
 	active_state._enter_state({})
+	# ASSUME: all possible states are children of the state machine node
+	for child: State in get_children():
+		child.state_changed.connect(change_state)
 
 func _physics_process(delta: float) -> void:
 	active_state._physics_update(delta)
