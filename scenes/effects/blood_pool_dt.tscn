@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://270mt62wcar"]
+
+[ext_resource type="PackedScene" uid="uid://ce0rwt88cs64q" path="res://scenes/effects/decal_transport.tscn" id="1_cfdi4"]
+[ext_resource type="PackedScene" uid="uid://cxof7rv6muoir" path="res://scenes/effects/BloodPool.tscn" id="2_iyud8"]
+
+[node name="BloodPoolDT" unique_id=1677618239 node_paths=PackedStringArray("decal") instance=ExtResource("1_cfdi4")]
+decal = NodePath("BloodPool")
+launch_speed = 50.0
+launch_angle_variation = 3.142
+
+[node name="BloodPool" parent="." index="1" unique_id=923940925 instance=ExtResource("2_iyud8")]
