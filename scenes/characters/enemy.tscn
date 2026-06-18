@@ -57,8 +57,8 @@ los_check = NodePath("LOSCheck")
 
 [node name="VisionCone" type="Area2D" parent="DetectionComponent" index="0" unique_id=1627130304]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionComponent/VisionCone" index="0" unique_id=1113541905]
-polygon = PackedVector2Array(100, -15, 0, 0, 100, 15)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionComponent/VisionCone" index="0" unique_id=1175555256]
+polygon = PackedVector2Array(200, -200, 0, 0, 200, 200, 300, 0)
 
 [node name="LOSCheck" type="RayCast2D" parent="DetectionComponent" index="1" unique_id=1253217664]
 target_position = Vector2(0, 0)

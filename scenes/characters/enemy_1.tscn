@@ -22,9 +22,6 @@ self_modulate = Color(0.9529412, 0.78431374, 0.627451, 1)
 z_index = 1
 texture = ExtResource("4_e4wcf")
 
-[node name="CollisionPolygon2D" parent="DetectionComponent/VisionCone" parent_id_path=PackedInt32Array(1627130304) index="0" unique_id=1113541905]
-polygon = PackedVector2Array(200, -200, 0, 0, 200, 200, 300, 0)
-
 [node name="Shotgun" parent="." index="8" unique_id=1096367988 instance=ExtResource("5_0o106")]
 position = Vector2(10, 2)
 rotation = 1.5707964
