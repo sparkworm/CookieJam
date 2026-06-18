@@ -6,6 +6,7 @@ extends Character
 var active_weapon_idx: int
 
 func _ready() -> void:
+	super._ready()
 	# hardcoded for 2 weapons
 	# ASSUME: there are two weapon in available weapons, and active_weapon is one of them
 	active_weapon_idx = 0 if active_weapon == available_weapons[0] else 1

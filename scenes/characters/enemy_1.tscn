@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://04e5h5usm15y" path="res://textures/character/arms_bad.png" id="2_4y65w"]
 [ext_resource type="Texture2D" uid="uid://bbbta28cgcgqw" path="res://textures/character/body.png" id="3_0o106"]
 [ext_resource type="Texture2D" uid="uid://dbseooyx5kmiw" path="res://textures/generic_shapes/circle7.png" id="4_e4wcf"]
+[ext_resource type="PackedScene" uid="uid://bbd4gf7bskb1e" path="res://scenes/weapons/shotgun.tscn" id="5_0o106"]
 
-[node name="Enemy1" unique_id=1616588408 instance=ExtResource("1_ln8tg")]
+[node name="Enemy1" unique_id=1616588408 node_paths=PackedStringArray("active_weapon") instance=ExtResource("1_ln8tg")]
+active_weapon = NodePath("Shotgun")
 
 [node name="Arms" type="Sprite2D" parent="Body" parent_id_path=PackedInt32Array(1846759813) index="0" unique_id=553594702]
 self_modulate = Color(0.9529412, 0.78431374, 0.627451, 1)
@@ -19,3 +21,10 @@ texture = ExtResource("3_0o106")
 self_modulate = Color(0.9529412, 0.78431374, 0.627451, 1)
 z_index = 1
 texture = ExtResource("4_e4wcf")
+
+[node name="CollisionPolygon2D" parent="DetectionComponent/VisionCone" parent_id_path=PackedInt32Array(1627130304) index="0" unique_id=1113541905]
+polygon = PackedVector2Array(200, -200, 0, 0, 200, 200, 300, 0)
+
+[node name="Shotgun" parent="." index="8" unique_id=1096367988 instance=ExtResource("5_0o106")]
+position = Vector2(10, 2)
+rotation = 1.5707964

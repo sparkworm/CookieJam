@@ -43,8 +43,8 @@ func die() -> void:
 ## ASSUME: incoming damage is a positive value
 ## TODO: add blood splatter
 func take_hit(damage: int) -> void:
-	
 	health_component.change_health(-damage)
+	print(health_component.health)
 
 ## Pull the active weapon's trigger
 func pull_trigger() -> void:

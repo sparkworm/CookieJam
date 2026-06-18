@@ -48,8 +48,10 @@ func nav_update() -> void:
 	
 	# direction we want to be moving
 	var dir: Vector2 = (nav_agent.get_next_path_position() - character.global_position).normalized()
+	character.rotation = dir.angle()
 	character.velocity_component.set_velocity(dir * investigate_speed)
 
 ## The player has entered the Vision cone and we have LOS: change to approach state
 func player_spotted(player: Node2D) -> void:
-	state_changed.emit(approaching_state, {"target":player})
+	var dict: Dictionary[String,Variant] = {"target":player}
+	state_changed.emit(approaching_state, dict)

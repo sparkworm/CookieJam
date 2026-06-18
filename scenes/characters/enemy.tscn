@@ -29,7 +29,7 @@ detection_component = NodePath("../../DetectionComponent")
 nav_agent = NodePath("../../NavAgent")
 nav_timer = NodePath("../../NavTimer")
 character = NodePath("../..")
-investigate_speed = 100.0
+investigate_speed = 45.0
 
 [node name="ApproachingState" type="Node" parent="StateMachine" index="2" unique_id=1874332198 node_paths=PackedStringArray("attacking_state", "investigating_state", "detection_component", "nav_agent", "nav_timer", "character")]
 script = ExtResource("6_rc7n0")
@@ -39,15 +39,17 @@ detection_component = NodePath("../../DetectionComponent")
 nav_agent = NodePath("../../NavAgent")
 nav_timer = NodePath("../../NavTimer")
 character = NodePath("../..")
-engagement_range = 50.0
+engagement_range = 200.0
 approach_speed = 50.0
 
-[node name="AttackingState" type="Node" parent="StateMachine" index="3" unique_id=414401486 node_paths=PackedStringArray("investigating_state", "approaching_state", "detection_component", "character")]
+[node name="AttackingState" type="Node" parent="StateMachine" index="3" unique_id=414401486 node_paths=PackedStringArray("investigating_state", "approaching_state", "scanning_state", "detection_component", "character")]
 script = ExtResource("7_gpyvg")
 investigating_state = NodePath("../InvestigatingState")
 approaching_state = NodePath("../ApproachingState")
+scanning_state = NodePath("../ScanningState")
 detection_component = NodePath("../../DetectionComponent")
 character = NodePath("../..")
+disengagement_range = 300.0
 
 [node name="DetectionComponent" parent="." index="5" unique_id=1638461641 node_paths=PackedStringArray("vision_detect", "los_check") instance=ExtResource("4_21x0f")]
 vision_detect = NodePath("VisionCone")

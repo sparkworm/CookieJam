@@ -20,6 +20,7 @@ extends State
 ## The speed at which the enemy will approach along its path to reach the player.
 ## I imagine this would look better being higher than the investigate_speed in InvestigatingState.
 @export var approach_speed: float = 500
+@export var scanning_state: ScanningState
 
 ## The target that this enemy is navigating to.  Should always be the player in this case.
 var target: Node2D
@@ -37,20 +38,24 @@ func _exit_state() -> void:
 
 func _physics_update(_delta: float) -> void:
 	character.apply_velocity()
+	character.look_at(target.global_position)
 
 func nav_update() -> void:
-	# dict for switching to another state (either one would require the same dict)
-	var dict: Dictionary[String,Variant] = {"target":target.global_position}
+	# if the player has died, simply return to scanning
+	if target == null or not is_instance_valid(target):
+		var dict: Dictionary[String,Variant]
+		state_changed.emit(scanning_state, dict)
+		return
+	# if LOS is lost, switch to investigation
 	if not detection_component.has_los(target):
 		# NOTE: this technically uses the current position of the target instead of the last known
 		# position, but this shouldn't be noticable if the nav_timer is fast enough
+		var dict: Dictionary[String,Variant] = {"target":target.global_position}
 		state_changed.emit(investigating_state, dict)
 		return
 	if (target.global_position - character.global_position).length() <= engagement_range:
 		character.velocity_component.set_velocity(Vector2.ZERO)
-		print(character.velocity_component.velocity, ": ", character.velocity)
-		character.apply_velocity()
-		print(character.velocity_component.velocity, ": ", character.velocity)
+		var dict: Dictionary[String,Variant] = {"target":target}
 		state_changed.emit(attacking_state, dict)
 		return
 	nav_agent.target_position = target.global_position

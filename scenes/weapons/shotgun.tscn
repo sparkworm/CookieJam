@@ -36,3 +36,6 @@ texture = ExtResource("4_xtykv")
 
 [node name="BulletSpawnPoint" parent="." index="3" unique_id=1589868616]
 position = Vector2(-0.5, -18)
+
+[node name="FireCooldown" parent="." index="5" unique_id=334343279]
+wait_time = 0.5

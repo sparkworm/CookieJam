@@ -11,7 +11,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-344, -133, -95, -200, 
 [node name="TestLevel" unique_id=50319851 instance=ExtResource("1_jbqir")]
 
 [node name="Enemy1" parent="Characters" parent_id_path=PackedInt32Array(30931231) index="1" unique_id=1616588408 instance=ExtResource("2_yautc")]
-position = Vector2(-106, -20)
+position = Vector2(-223, -21)
 
 [node name="NavigationRegion2D" parent="." index="4" unique_id=656354786]
 navigation_polygon = SubResource("NavigationPolygon_yautc")
