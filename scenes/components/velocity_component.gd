@@ -24,3 +24,6 @@ func accelerate(delta: float, direction: Vector2, magnitude: float = accel) -> v
 	velocity += direction * magnitude * delta
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
+
+func set_velocity(vel: Vector2) -> void:
+	velocity = vel

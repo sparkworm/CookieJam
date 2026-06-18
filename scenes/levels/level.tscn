@@ -9,7 +9,7 @@
 script = ExtResource("1_377w7")
 
 [node name="Characters" type="Node2D" parent="." unique_id=30931231]
-z_index = 2
+z_index = 3
 
 [node name="Player" parent="Characters" unique_id=1616588408 instance=ExtResource("2_bovvr")]
 z_index = 0
@@ -24,7 +24,9 @@ z_index = 1
 zoom = Vector2(1.5, 1.5)
 subject = NodePath("../Characters/Player")
 
-[node name="Walls" type="TileMapLayer" parent="." unique_id=699539210]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=656354786]
+
+[node name="Walls" type="TileMapLayer" parent="NavigationRegion2D" unique_id=699539210]
 light_mask = 64
 visibility_layer = 64
 z_index = 2

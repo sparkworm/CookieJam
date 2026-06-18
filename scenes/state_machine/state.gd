@@ -5,12 +5,12 @@ extends Node
 @warning_ignore("unused_signal")
 ## I think in the past I've given states a reference to their state machine so they could call
 ## change_state() directly, but I think a signal is better design
-signal state_changed(new_state: State, args: Dictionary)
+signal state_changed(new_state: State, args: Dictionary[String,Variant])
 
 @warning_ignore_start("unused_parameter")
 
 ## Called when this state is made active
-func _enter_state(args: Dictionary) -> void:
+func _enter_state(args: Dictionary[String,Variant]) -> void:
 	pass
 
 ## State equivalent of _physics_process()

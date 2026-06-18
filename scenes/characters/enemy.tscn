@@ -2,6 +2,67 @@
 
 [ext_resource type="PackedScene" uid="uid://i1c5ireodgf2" path="res://scenes/characters/character.tscn" id="1_7jb55"]
 [ext_resource type="Script" uid="uid://bsypdw6vcso71" path="res://scenes/characters/enemy.gd" id="2_fulqv"]
+[ext_resource type="PackedScene" uid="uid://4mt776tm7ngb" path="res://scenes/state_machine/state_machine.tscn" id="3_f2e6v"]
+[ext_resource type="Script" uid="uid://d088p7lbkt368" path="res://scenes/state_machine/scanning_state.gd" id="4_0ag5d"]
+[ext_resource type="PackedScene" uid="uid://cxvd46h1hfnly" path="res://scenes/components/detection_component.tscn" id="4_21x0f"]
+[ext_resource type="Script" uid="uid://m5rfncaryum3" path="res://scenes/state_machine/investigating_state.gd" id="5_f0ik5"]
+[ext_resource type="Script" uid="uid://c62xdacav4opv" path="res://scenes/state_machine/approaching_state.gd" id="6_rc7n0"]
+[ext_resource type="Script" uid="uid://cbdsp2nydt2tk" path="res://scenes/state_machine/attacking_state.gd" id="7_gpyvg"]
 
 [node name="Enemy" unique_id=1616588408 instance=ExtResource("1_7jb55")]
 script = ExtResource("2_fulqv")
+
+[node name="StateMachine" parent="." index="4" unique_id=1920744498 node_paths=PackedStringArray("active_state") instance=ExtResource("3_f2e6v")]
+active_state = NodePath("ScanningState")
+
+[node name="ScanningState" type="Node" parent="StateMachine" index="0" unique_id=801743921 node_paths=PackedStringArray("investigating_state", "approaching_state", "detection_component")]
+script = ExtResource("4_0ag5d")
+investigating_state = NodePath("../InvestigatingState")
+approaching_state = NodePath("../ApproachingState")
+detection_component = NodePath("../../DetectionComponent")
+
+[node name="InvestigatingState" type="Node" parent="StateMachine" index="1" unique_id=180715450 node_paths=PackedStringArray("approaching_state", "scanning_state", "detection_component", "nav_agent", "nav_timer", "character")]
+script = ExtResource("5_f0ik5")
+approaching_state = NodePath("../ApproachingState")
+scanning_state = NodePath("../ScanningState")
+detection_component = NodePath("../../DetectionComponent")
+nav_agent = NodePath("../../NavAgent")
+nav_timer = NodePath("../../NavTimer")
+character = NodePath("../..")
+investigate_speed = 100.0
+
+[node name="ApproachingState" type="Node" parent="StateMachine" index="2" unique_id=1874332198 node_paths=PackedStringArray("attacking_state", "investigating_state", "detection_component", "nav_agent", "nav_timer", "character")]
+script = ExtResource("6_rc7n0")
+attacking_state = NodePath("../AttackingState")
+investigating_state = NodePath("../InvestigatingState")
+detection_component = NodePath("../../DetectionComponent")
+nav_agent = NodePath("../../NavAgent")
+nav_timer = NodePath("../../NavTimer")
+character = NodePath("../..")
+engagement_range = 50.0
+approach_speed = 50.0
+
+[node name="AttackingState" type="Node" parent="StateMachine" index="3" unique_id=414401486 node_paths=PackedStringArray("investigating_state", "approaching_state", "detection_component", "character")]
+script = ExtResource("7_gpyvg")
+investigating_state = NodePath("../InvestigatingState")
+approaching_state = NodePath("../ApproachingState")
+detection_component = NodePath("../../DetectionComponent")
+character = NodePath("../..")
+
+[node name="DetectionComponent" parent="." index="5" unique_id=1638461641 node_paths=PackedStringArray("vision_detect", "los_check") instance=ExtResource("4_21x0f")]
+vision_detect = NodePath("VisionCone")
+los_check = NodePath("LOSCheck")
+
+[node name="VisionCone" type="Area2D" parent="DetectionComponent" index="0" unique_id=1627130304]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionComponent/VisionCone" index="0" unique_id=1113541905]
+polygon = PackedVector2Array(100, -15, 0, 0, 100, 15)
+
+[node name="LOSCheck" type="RayCast2D" parent="DetectionComponent" index="1" unique_id=1253217664]
+target_position = Vector2(0, 0)
+collision_mask = 9
+
+[node name="NavAgent" type="NavigationAgent2D" parent="." index="6" unique_id=1309681900]
+
+[node name="NavTimer" type="Timer" parent="." index="7" unique_id=431143151]
+wait_time = 0.2

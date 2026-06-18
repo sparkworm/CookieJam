@@ -17,7 +17,8 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	active_state._update(delta)
 
-func change_state(new_state: State, args: Dictionary) -> void:
+func change_state(new_state: State, args: Dictionary[String,Variant]) -> void:
+	print("Changing from ", active_state.name, " to ", new_state.name)
 	active_state._exit_state()
 	active_state = new_state
 	active_state._enter_state(args)

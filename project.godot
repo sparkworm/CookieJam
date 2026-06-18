@@ -39,6 +39,10 @@ folder_colors={
 "res://textures/": "pink"
 }
 
+[global_group]
+
+player="Identifies this body as the player"
+
 [input]
 
 move_right={

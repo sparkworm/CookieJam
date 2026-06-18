@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxvd46h1hfnly"]
+
+[ext_resource type="Script" uid="uid://djm4p6iqyxq6b" path="res://scenes/components/detection_component.gd" id="1_yp442"]
+
+[node name="DetectionComponent" type="Node2D" unique_id=1638461641]
+script = ExtResource("1_yp442")
+target_group = "player"
