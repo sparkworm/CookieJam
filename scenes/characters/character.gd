@@ -5,6 +5,7 @@ class_name Character
 extends CharacterBody2D
 
 const BLOOD_POOL_DT = preload("uid://270mt62wcar")
+const BLOOD_SPLATTER_DT = preload("uid://6hxsvs3i0ofp")
 
 
 @export var health_component: HealthComponent
@@ -41,10 +42,12 @@ func die() -> void:
 	queue_free()
 
 ## ASSUME: incoming damage is a positive value
-## TODO: add blood splatter
 func take_hit(damage: int) -> void:
+	var splatter: DecalTransport = BLOOD_SPLATTER_DT.instantiate()
+	# TODO: make launch angle feel better
+	MessageBus.decal_transport_spawned.emit(global_position, PI, splatter)
+	
 	health_component.change_health(-damage)
-	print(health_component.health)
 
 ## Pull the active weapon's trigger
 func pull_trigger() -> void:

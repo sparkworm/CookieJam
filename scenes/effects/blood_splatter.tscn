@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cnjuo26xumr5w"]
+
+[ext_resource type="Texture2D" uid="uid://c0adq8r48jrw2" path="res://textures/decals/blood_splatter.png" id="1_gprqw"]
+[ext_resource type="Script" uid="uid://cxfulxaws17k8" path="res://scenes/effects/blood_splatter.gd" id="1_so1kv"]
+
+[node name="BloodSplatter" type="Sprite2D" unique_id=1289754529]
+modulate = Color(0.80784315, 0.043137256, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gprqw")
+hframes = 7
+script = ExtResource("1_so1kv")
