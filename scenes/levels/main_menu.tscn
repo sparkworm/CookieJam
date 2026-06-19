@@ -38,3 +38,7 @@ layout_mode = 2
 [node name="StartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=264283817]
 layout_mode = 2
 text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=776119075]
+layout_mode = 2
+text = "Quit Game"

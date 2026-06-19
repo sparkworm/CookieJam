@@ -16,3 +16,5 @@ signal bullet_spawned(pos: Vector2, dir: Vector2, data: BulletData)
 signal decal_transport_spawned(pos: Vector2, rot: float, transport: DecalTransport)
 ## Spawns a small icon to help with debugging
 signal debug_marker_spawned(pos: Vector2)
+
+signal pause_menu_toggled
